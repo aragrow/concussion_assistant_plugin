@@ -153,8 +153,6 @@ class WP_ConcuAid_ShortCodes {
 
         // Execute cURL and store the result
         $response = curl_exec($ch);
-    
-        error_log(print_r($response,true));
 
         // Check for cURL errors
         if(curl_errno($ch)) {
@@ -168,7 +166,10 @@ class WP_ConcuAid_ShortCodes {
         curl_close($ch);
     
         // Return the response or process it (e.g., display as JSON)
-        return $response;
+        error_log('// Return the response or process it (e.g., display as JSON');
+        error_log(print_r($response,true));
+
+        echo $response;
     }
 
     function set_concuaid_prompt() {
